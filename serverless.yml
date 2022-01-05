@@ -4,17 +4,11 @@ provider:
   runtime: nodejs12.x
   region: ap-southeast-1
 functions:
-  test:
-    handler: ./src/handlers/test.test
+  pokemon:
+    handler: ./src/handlers/pokemonHandler.pokemon
     events:
       - http:
           path: /
-          method: get
-  test2:
-    handler: ./src/handlers/test2.test
-    events:
-      - http:
-          path: /test
           method: get
 plugins:
   - serverless-offline
