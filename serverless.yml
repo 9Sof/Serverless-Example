@@ -1,0 +1,20 @@
+service: test
+provider:
+  name: aws
+  runtime: nodejs12.x
+  region: ap-southeast-1
+functions:
+  test:
+    handler: ./src/handlers/test.test
+    events:
+      - http:
+          path: /
+          method: get
+  test2:
+    handler: ./src/handlers/test2.test
+    events:
+      - http:
+          path: /test
+          method: get
+plugins:
+  - serverless-offline
