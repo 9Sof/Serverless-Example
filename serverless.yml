@@ -4,11 +4,17 @@ provider:
   runtime: nodejs12.x
   region: ap-southeast-1
 functions:
-  pokemon:
-    handler: ./src/handlers/pokemonHandler.pokemon
+  pokemonFindAll:
+    handler: ./src/handlers/pokemonHandler.findAll
     events:
       - http:
           path: /
+          method: get
+  pokemonFindOne:
+    handler: ./src/handlers/pokemonHandler.findOne
+    events:
+      - http:
+          path: /{pokemonId}
           method: get
 plugins:
   - serverless-offline
